@@ -130,6 +130,11 @@ public class Business {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Business [businessId=" + businessId + ", businessName=" + businessName + "]";
+	}
+
 
 	
 }

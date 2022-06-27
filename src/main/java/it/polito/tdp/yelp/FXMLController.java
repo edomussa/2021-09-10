@@ -37,7 +37,7 @@ public class FXMLController {
     private TextField txtX2; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbCitta"
-    private ComboBox<?> cmbCitta; // Value injected by FXMLLoader
+    private ComboBox<String> cmbCitta; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbB1"
     private ComboBox<?> cmbB1; // Value injected by FXMLLoader
@@ -50,7 +50,9 @@ public class FXMLController {
     
     @FXML
     void doCreaGrafo(ActionEvent event) {
-    	
+    	String c=this.cmbCitta.getValue();
+    	model.creaGrafo(c);
+    	txtResult.appendText(model.numVertici()+" "+model.numArchi());
     }
 
     @FXML
@@ -80,5 +82,6 @@ public class FXMLController {
     
     public void setModel(Model model) {
     	this.model = model;
+    	this.cmbCitta.getItems().addAll(model.getAllCities());
     }
 }
